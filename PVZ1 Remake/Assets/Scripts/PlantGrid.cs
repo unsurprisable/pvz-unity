@@ -20,11 +20,8 @@ public class PlantGrid : MonoBehaviour
     [SerializeField] private Vector2 cellDimensions;
 
 
-
-    private Vector2Int nullVector2Int = new Vector2Int(-1, -1);
-
     private PlantGridCell[][] gridCells;
-    private Vector2Int hoveredCell = new Vector2Int(-1, -1);
+    private PlantGridCell hoveredCell = null;
 
     private GameObject[] highlightRows;
     private GameObject[] highlightCols;
@@ -53,7 +50,7 @@ public class PlantGrid : MonoBehaviour
 
         for (int gridX = 0; gridX < gridDimensions.x; gridX++)
         {
-            GameObject highlightCol = GameObject.Instantiate(cellPrefab, new Vector2(cellDimensions.x*gridX + cellDimensions.x/2, cellDimensions.y*gridDimensions.y/2) + origin, Quaternion.identity, transform).gameObject;
+            GameObject highlightCol = Instantiate(cellPrefab, new Vector2(cellDimensions.x*gridX + cellDimensions.x/2, cellDimensions.y*gridDimensions.y/2) + origin, Quaternion.identity, transform).gameObject;
             highlightCol.transform.localScale = new Vector3(cellDimensions.x, cellDimensions.y * gridDimensions.y);
             highlightCol.SetActive(false);
             highlightCols[gridX] = highlightCol;
@@ -63,13 +60,13 @@ public class PlantGrid : MonoBehaviour
             {
                 if (gridX == 0)
                 {
-                    GameObject highlightRow = GameObject.Instantiate(cellPrefab, new Vector2(cellDimensions.x*gridDimensions.x/2, cellDimensions.y*gridY + cellDimensions.y/2) + origin, Quaternion.identity, transform).gameObject;
+                    GameObject highlightRow = Instantiate(cellPrefab, new Vector2(cellDimensions.x*gridDimensions.x/2, cellDimensions.y*gridY + cellDimensions.y/2) + origin, Quaternion.identity, transform).gameObject;
                     highlightRow.transform.localScale = new Vector3(cellDimensions.x * gridDimensions.x, cellDimensions.y);
                     highlightRow.SetActive(false);
                     highlightRows[gridY] = highlightRow;
                 }
                 Vector2 position = new Vector2(cellDimensions.x * gridX, cellDimensions.y * gridY) + cellDimensions/2 + origin;
-                gridCells[gridX][gridY] = new PlantGridCell(position, cellDimensions.x, cellDimensions.y);
+                gridCells[gridX][gridY] = new PlantGridCell(position, cellDimensions.x, cellDimensions.y, gridX, gridY);
             }
         }
     }
@@ -78,50 +75,41 @@ public class PlantGrid : MonoBehaviour
 
     private void UpdateHoveredCell() 
     {
-        bool found = false;
-        Vector2Int foundCell = nullVector2Int;
-        for (int gridX = 0; gridX < gridDimensions.x; gridX++)
-        {
-            for (int gridY = 0; gridY < gridDimensions.y; gridY++)
-            {
-                if (gridCells[gridX][gridY].IsHovered(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
-                {
-                    found = true;
-                    foundCell = new Vector2Int(gridX, gridY);
-                    break;
-                }
+        PlantGridCell foundCell = null;
+        ForEachCell((cell) => {
+            if (cell.IsHovered(Camera.main.ScreenToWorldPoint(Input.mousePosition))) {
+                foundCell = cell;
+                return;
             }
-            if (found) break;
+        });
+
+        if (hoveredCell != null) {
+            highlightCols[hoveredCell.GridX()].SetActive(false);
+            highlightRows[hoveredCell.GridY()].SetActive(false);
         }
-        
-        if (foundCell.Equals(hoveredCell)) return;
-        if (!hoveredCell.Equals(nullVector2Int)) {
-            highlightCols[hoveredCell.x].SetActive(false);
-            highlightRows[hoveredCell.y].SetActive(false);
+
+        hoveredCell = foundCell;
+        if (hoveredCell != null) {
+            highlightCols[hoveredCell.GridX()].SetActive(true);
+            highlightRows[hoveredCell.GridY()].SetActive(true);
         }
-        if (found)
-        {
-            hoveredCell = foundCell;
-            highlightCols[hoveredCell.x].SetActive(true);
-            highlightRows[hoveredCell.y].SetActive(true);
-            return;
-        }
-        hoveredCell = nullVector2Int;
     }
 
 
     public bool TryGetHoveredCell(out PlantGridCell cell)
     {
-        if (hoveredCell.Equals(nullVector2Int)) 
-        {
-            cell = null;
-            return false;
-        }
-        else
-        {
-            cell = gridCells[hoveredCell.x][hoveredCell.y];
-            return true;
-        }
+        cell = hoveredCell;
+        return hoveredCell != null;
     }
 
+
+    public delegate void CellAction(PlantGridCell cell);
+    public void ForEachCell(CellAction runnable)
+    {
+        foreach (PlantGridCell[] colCells in gridCells) {
+            foreach (PlantGridCell cell in colCells) {
+                runnable(cell);
+            }
+        }
+    }
 }

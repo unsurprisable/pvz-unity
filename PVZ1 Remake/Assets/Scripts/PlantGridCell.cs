@@ -8,14 +8,19 @@ public class PlantGridCell
     private float width;
     private float height;
     private Vector2 worldPosition;
+    
+    private int gridX;
+    private int gridY;
 
     private Plant plant;
 
-    public PlantGridCell(Vector2 worldPosition, float width, float height) 
+    public PlantGridCell(Vector2 worldPosition, float width, float height, int gridX, int gridY) 
     {
         this.width = width;
         this.height = height;
         this.worldPosition = worldPosition;
+        this.gridX = gridX;
+        this.gridY = gridY;
     }
 
     public bool IsHovered(Vector2 mousePos) {
@@ -27,10 +32,24 @@ public class PlantGridCell
         return mousePos.x >= left && mousePos.x < right && mousePos.y >= bottom && mousePos.y < top;
     }
 
+    public int GridX() {
+        return gridX;
+    }
+    public int GridY() {
+        return gridY;
+    }
+    public Vector2Int GetGridCoordinates() {
+        return new Vector2Int(gridX, gridY);
+    }
+
+    public Vector2 GetWorldPosition() {
+        return worldPosition;
+    }
+
 
     public void PlacePlant()
     {
-        Debug.Log("hi");
+        PlantManager.Instance.Plant<Sunflower>(this);
     }
 
 }
