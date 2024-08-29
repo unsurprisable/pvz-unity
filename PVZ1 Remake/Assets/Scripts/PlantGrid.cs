@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.EditorTools;
 using UnityEngine;
 
 public class PlantGrid : MonoBehaviour
 {
+
+    public static PlantGrid Instance { get; private set; }
+
     [SerializeField] private Transform cellPrefab;
 
     [Space]
@@ -19,7 +19,9 @@ public class PlantGrid : MonoBehaviour
     [Tooltip("Width & height of each individual cell")]
     [SerializeField] private Vector2 cellDimensions;
 
-    
+
+
+    private Vector2Int nullVector2Int = new Vector2Int(-1, -1);
 
     private PlantGridCell[][] gridCells;
     private Vector2Int hoveredCell = new Vector2Int(-1, -1);
@@ -32,6 +34,7 @@ public class PlantGrid : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         InitializeGrid();
     }
 
@@ -76,7 +79,7 @@ public class PlantGrid : MonoBehaviour
     private void UpdateHoveredCell() 
     {
         bool found = false;
-        Vector2Int foundCell = new Vector2Int(-1, -1);
+        Vector2Int foundCell = nullVector2Int;
         for (int gridX = 0; gridX < gridDimensions.x; gridX++)
         {
             for (int gridY = 0; gridY < gridDimensions.y; gridY++)
@@ -92,7 +95,7 @@ public class PlantGrid : MonoBehaviour
         }
         
         if (foundCell.Equals(hoveredCell)) return;
-        if (!hoveredCell.Equals(new Vector2Int(-1, -1))) {
+        if (!hoveredCell.Equals(nullVector2Int)) {
             highlightCols[hoveredCell.x].SetActive(false);
             highlightRows[hoveredCell.y].SetActive(false);
         }
@@ -103,7 +106,22 @@ public class PlantGrid : MonoBehaviour
             highlightRows[hoveredCell.y].SetActive(true);
             return;
         }
-        hoveredCell = new Vector2Int(-1, -1);
+        hoveredCell = nullVector2Int;
+    }
+
+
+    public bool TryGetHoveredCell(out PlantGridCell cell)
+    {
+        if (hoveredCell.Equals(nullVector2Int)) 
+        {
+            cell = null;
+            return false;
+        }
+        else
+        {
+            cell = gridCells[hoveredCell.x][hoveredCell.y];
+            return true;
+        }
     }
 
 }

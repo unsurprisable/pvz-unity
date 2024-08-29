@@ -9,6 +9,8 @@ public class PlantGridCell
     private float height;
     private Vector2 worldPosition;
 
+    private Plant plant;
+
     public PlantGridCell(Vector2 worldPosition, float width, float height) 
     {
         this.width = width;
@@ -23,6 +25,12 @@ public class PlantGridCell
         float top = worldPosition.y + height/2;
 
         return mousePos.x >= left && mousePos.x < right && mousePos.y >= bottom && mousePos.y < top;
+    }
+
+
+    public void PlacePlant()
+    {
+        Debug.Log("hi");
     }
 
 }
