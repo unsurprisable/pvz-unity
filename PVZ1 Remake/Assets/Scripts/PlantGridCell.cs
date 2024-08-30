@@ -12,8 +12,6 @@ public class PlantGridCell
     private int gridX;
     private int gridY;
 
-    private Plant plant;
-
     public PlantGridCell(Vector2 worldPosition, float width, float height, int gridX, int gridY) 
     {
         this.width = width;
@@ -44,12 +42,6 @@ public class PlantGridCell
 
     public Vector2 GetWorldPosition() {
         return worldPosition;
-    }
-
-
-    public void PlacePlant()
-    {
-        PlantManager.Instance.Plant<Sunflower>(this);
     }
 
 }
