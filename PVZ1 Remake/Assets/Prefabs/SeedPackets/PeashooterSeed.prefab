@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7005444019029714404
+--- !u!1001 &321886856571568366
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,6 +8,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5055701986418498695, guid: 956a4d44293af2f46be829814b26ccba, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 69.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055701986418498695, guid: 956a4d44293af2f46be829814b26ccba, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 65.5769
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055701986418498695, guid: 956a4d44293af2f46be829814b26ccba, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -15.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055701986418498695, guid: 956a4d44293af2f46be829814b26ccba, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5.8684
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062875772297453840, guid: 956a4d44293af2f46be829814b26ccba, type: 3}
+      propertyPath: m_text
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5151103718519860023, guid: 956a4d44293af2f46be829814b26ccba, type: 3}
       propertyPath: cost
       value: 100
@@ -46,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6547903941590150772, guid: 956a4d44293af2f46be829814b26ccba, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 53.57
+      value: 118
       objectReference: {fileID: 0}
     - target: {fileID: 6547903941590150772, guid: 956a4d44293af2f46be829814b26ccba, type: 3}
       propertyPath: m_SizeDelta.y
@@ -100,17 +120,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6749060243068880798, guid: 956a4d44293af2f46be829814b26ccba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7a852a85df9cd2b429308ab2580070f3, type: 3}
     - target: {fileID: 6758210029412167602, guid: 956a4d44293af2f46be829814b26ccba, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.656
       objectReference: {fileID: 0}
     - target: {fileID: 6758210029412167602, guid: 956a4d44293af2f46be829814b26ccba, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7607421934019518634, guid: 956a4d44293af2f46be829814b26ccba, type: 3}
       propertyPath: m_Name
       value: PeashooterSeed
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216758950491072284, guid: 956a4d44293af2f46be829814b26ccba, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

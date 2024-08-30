@@ -35,12 +35,6 @@ public class PlantGrid : MonoBehaviour
         InitializeGrid();
     }
 
-    private void Start()
-    {
-        PlantMetaSO meta = PlantManager.Instance.GetPlantMeta(PlantManager.Plant.PEASHOOTER);
-        Debug.Log(meta.nickname);
-    }
-
 
     private void Update()
     {
