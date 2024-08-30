@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c4486742d313484e90591a22542038a, type: 3}
-  m_Name: PeashooterSO
+  m_Name: WallnutSO
   m_EditorClassIdentifier: 
-  nickname: Peashooter
-  plantPrefab: {fileID: 1237732240615178292, guid: 455e502cb69ca314b8c6a45b66142a45, type: 3}
-  seedPrefab: {fileID: 6821055208937533082, guid: 76cd6d2e65608404e81b4b6b63cc6caf, type: 3}
+  nickname: Wall-nut
+  plantPrefab: {fileID: 3347439126803372792, guid: 8c58b2eda8343c64e90cfa3828869359, type: 3}
+  seedPrefab: {fileID: 4728333132009968041, guid: 823ee819730692e4d99c0edc2f2886bd, type: 3}

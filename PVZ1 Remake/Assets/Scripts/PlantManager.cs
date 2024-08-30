@@ -21,7 +21,7 @@ public class PlantManager : MonoBehaviour
         Instance = this;
         // initialize id-to-meta dictionary
         foreach (PlantMetaSO p in plantMetaContainer.list) {
-            plantDictionary[p.id] = p;
+            // plantDictionary[p.id] = p;
         }
     }
 

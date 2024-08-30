@@ -12,6 +12,8 @@ public class PlantGridCell
     private int gridX;
     private int gridY;
 
+    private PlantMetaSO plant = null;
+
     public PlantGridCell(Vector2 worldPosition, float width, float height, int gridX, int gridY) 
     {
         this.width = width;
@@ -44,4 +46,14 @@ public class PlantGridCell
         return worldPosition;
     }
 
+    public bool HasPlant() {
+        return plant != null;
+    }
+    public void SetPlant(PlantMetaSO plant) {
+        this.plant = plant;
+    }
+    public void RemovePlant() {
+        this.plant = null;
+    }
+    
 }

@@ -55,6 +55,7 @@ public class PlantGrid : MonoBehaviour
         {
             GameObject highlightCol = Instantiate(cellPrefab, new Vector2(cellDimensions.x*gridX + cellDimensions.x/2, cellDimensions.y*gridDimensions.y/2) + origin, Quaternion.identity, transform).gameObject;
             highlightCol.transform.localScale = new Vector3(cellDimensions.x, cellDimensions.y * gridDimensions.y);
+            highlightCol.GetComponent<SpriteRenderer>().sortingOrder = -5;
             highlightCol.SetActive(false);
             highlightCols[gridX] = highlightCol;
 
@@ -65,6 +66,7 @@ public class PlantGrid : MonoBehaviour
                 {
                     GameObject highlightRow = Instantiate(cellPrefab, new Vector2(cellDimensions.x*gridDimensions.x/2, cellDimensions.y*gridY + cellDimensions.y/2) + origin, Quaternion.identity, transform).gameObject;
                     highlightRow.transform.localScale = new Vector3(cellDimensions.x * gridDimensions.x, cellDimensions.y);
+                    highlightRow.GetComponent<SpriteRenderer>().sortingOrder = -5;
                     highlightRow.SetActive(false);
                     highlightRows[gridY] = highlightRow;
                 }
@@ -124,5 +126,15 @@ public class PlantGrid : MonoBehaviour
             highlightCols[hoveredCell.GridX()].SetActive(false);
             highlightRows[hoveredCell.GridY()].SetActive(false);
         }
+    }
+
+    public void PlantSeed(PlantMetaSO plantMeta, PlantGridCell cell) {
+        if (cell.HasPlant()) {
+            Debug.LogError("cannot plant on an occupied space! location: " + cell.GetGridCoordinates());
+            return;
+        }
+        cell.SetPlant(plantMeta);
+        Instantiate(plantMeta.plantPrefab, cell.GetWorldPosition(), Quaternion.identity);
+        Debug.Log("planted " + plantMeta.nickname + " at cell " + cell.GetGridCoordinates());
     }
 }

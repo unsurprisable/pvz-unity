@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,25 +16,40 @@ public class SeedPacketManager : MonoBehaviour
 
     private void Start()
     {
-        
+        GameInput.Instance.OnClickAction += GameInput_OnClickAction;
+    }
+
+    private void GameInput_OnClickAction(object sender, EventArgs e)
+    {
+        // planting seeds
+        if (selectedSeed != null && PlantGrid.Instance.TryGetHoveredCell(out PlantGridCell cell)) {
+            PlantGrid.Instance.PlantSeed(selectedSeed.plantMeta, cell);
+            selectedSeed.StartCooldown();
+            DeselectSeed();
+        }
     }
 
     // called from the seed packets themselves
     public void OnSeedPacketClicked(SeedPacket seed)
     {
         if (seed != selectedSeed) {
-            if (selectedSeed != null) selectedSeed.Deselect();
-            seed.Select();
-            selectedSeed = seed;
+            if (selectedSeed != null) DeselectSeed();
+            if (!seed.IsOnCooldown()) {
+                SelectSeed(seed);
+            }
         } else {
-            seed.Deselect();
-            selectedSeed = null;
+            DeselectSeed();
         }
+    }
 
-        if (selectedSeed != null) {
-            PlantGrid.Instance.Enable();
-        } else {
-            PlantGrid.Instance.Disable();
-        }
+    private void SelectSeed(SeedPacket seed) {
+        seed.Select();
+        PlantGrid.Instance.Enable();
+        selectedSeed = seed;
+    }
+    private void DeselectSeed() {
+        selectedSeed.Deselect();
+        PlantGrid.Instance.Disable();
+        selectedSeed = null;
     }
 }

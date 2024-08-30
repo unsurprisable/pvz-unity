@@ -579,6 +579,7 @@ MonoBehaviour:
   cost: -1
   cooldown: -1
   selectedVisual: {fileID: 5805803387045587535}
+  cooldownVisual: {fileID: 2558771356452634227}
 --- !u!114 &1406299824206470647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -662,6 +663,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2059782498711512679}
+  - component: {fileID: 2558771356452634227}
   m_Layer: 0
   m_Name: CooldownOverlay
   m_TagString: Untagged
@@ -690,6 +692,19 @@ RectTransform:
   m_AnchoredPosition: {x: -1.0222, y: 2.1399}
   m_SizeDelta: {x: 110.2115, y: 67.1066}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2558771356452634227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8216758950491072284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57e8839eb4d4734382ed6a136eda542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 8612090897268060997}
 --- !u!1 &8764779005859626028
 GameObject:
   m_ObjectHideFlags: 0
