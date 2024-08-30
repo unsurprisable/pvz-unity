@@ -4,6 +4,9 @@ using UnityEngine;
 public class PlantMetaSO : ScriptableObject
 {
     public PlantManager.Plant id;
-    public Transform prefab;
     public string nickname;
+    [Space]
+    public Transform plantPrefab;
+    public Transform seedPrefab;
+
 }
