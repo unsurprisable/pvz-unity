@@ -26,6 +26,8 @@ public class PlantGrid : MonoBehaviour
     private GameObject[] highlightRows;
     private GameObject[] highlightCols;
 
+    private bool isDisabled = true;
+
 
 
 
@@ -38,6 +40,7 @@ public class PlantGrid : MonoBehaviour
 
     private void Update()
     {
+        if (isDisabled) return;
         UpdateHoveredCell();
     }
 
@@ -95,7 +98,6 @@ public class PlantGrid : MonoBehaviour
         }
     }
 
-
     public bool TryGetHoveredCell(out PlantGridCell cell)
     {
         cell = hoveredCell;
@@ -110,6 +112,17 @@ public class PlantGrid : MonoBehaviour
             foreach (PlantGridCell cell in colCells) {
                 runnable(cell);
             }
+        }
+    }
+
+    public void Enable() {
+        isDisabled = false;
+    }
+    public void Disable() {
+        isDisabled = true;
+        if (hoveredCell != null) {
+            highlightCols[hoveredCell.GridX()].SetActive(false);
+            highlightRows[hoveredCell.GridY()].SetActive(false);
         }
     }
 }
