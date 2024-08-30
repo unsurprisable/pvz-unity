@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: PeashooterSO
   m_EditorClassIdentifier: 
   id: 0
-  prefab: {fileID: 5064921527802731460, guid: 372d2ad90ff0a39459b52cced5cc935d, type: 3}
   nickname: Peashooter
+  plantPrefab: {fileID: 5064921527802731460, guid: 372d2ad90ff0a39459b52cced5cc935d, type: 3}
+  seedPrefab: {fileID: 4316284392390183824, guid: 76cd6d2e65608404e81b4b6b63cc6caf, type: 3}
