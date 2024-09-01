@@ -55,7 +55,6 @@ public class PlantGrid : MonoBehaviour
         {
             GameObject highlightCol = Instantiate(cellPrefab, new Vector2(cellDimensions.x*gridX + cellDimensions.x/2, cellDimensions.y*gridDimensions.y/2) + origin, Quaternion.identity, transform).gameObject;
             highlightCol.transform.localScale = new Vector3(cellDimensions.x, cellDimensions.y * gridDimensions.y);
-            highlightCol.GetComponent<SpriteRenderer>().sortingOrder = -5;
             highlightCol.SetActive(false);
             highlightCols[gridX] = highlightCol;
 
@@ -66,7 +65,6 @@ public class PlantGrid : MonoBehaviour
                 {
                     GameObject highlightRow = Instantiate(cellPrefab, new Vector2(cellDimensions.x*gridDimensions.x/2, cellDimensions.y*gridY + cellDimensions.y/2) + origin, Quaternion.identity, transform).gameObject;
                     highlightRow.transform.localScale = new Vector3(cellDimensions.x * gridDimensions.x, cellDimensions.y);
-                    highlightRow.GetComponent<SpriteRenderer>().sortingOrder = -5;
                     highlightRow.SetActive(false);
                     highlightRows[gridY] = highlightRow;
                 }
@@ -94,7 +92,7 @@ public class PlantGrid : MonoBehaviour
         }
 
         hoveredCell = foundCell;
-        if (hoveredCell != null) {
+        if (hoveredCell != null && !hoveredCell.HasPlant()) {
             highlightCols[hoveredCell.GridX()].SetActive(true);
             highlightRows[hoveredCell.GridY()].SetActive(true);
         }
