@@ -58,11 +58,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6819123035908430509, guid: 372d2ad90ff0a39459b52cced5cc935d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.11
+      value: -0.079
       objectReference: {fileID: 0}
     - target: {fileID: 6819123035908430509, guid: 372d2ad90ff0a39459b52cced5cc935d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.08
+      value: -0.661
       objectReference: {fileID: 0}
     - target: {fileID: 8049307014582315887, guid: 372d2ad90ff0a39459b52cced5cc935d, type: 3}
       propertyPath: m_Size.x
@@ -82,7 +82,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9083133241976077789, guid: 372d2ad90ff0a39459b52cced5cc935d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.115
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083133241976077789, guid: 372d2ad90ff0a39459b52cced5cc935d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.07500002
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2074489411002718383, guid: 372d2ad90ff0a39459b52cced5cc935d, type: 3}
@@ -111,3 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plantMeta: {fileID: 11400000, guid: 195348150d283c34ab12c60617867fd2, type: 2}
+  health: 6
+  initialDelay: 0
+  period: 1.5

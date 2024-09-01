@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasePlant : MonoBehaviour
+public abstract class BasePlant : MonoBehaviour
 {
-    
-    [Header("Base Plant")]
+    [Space]
+    [Header("---Base Attributes---")]
     [SerializeField] private PlantMetaSO plantMeta;
-    [SerializeField] private int health;
+    [SerializeField] protected int health;
+
+    public virtual void OnBite() {}
 }

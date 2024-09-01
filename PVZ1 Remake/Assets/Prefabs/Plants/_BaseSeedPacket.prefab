@@ -395,8 +395,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.0222, y: 24.9}
-  m_SizeDelta: {x: 100.32, y: 14.2725}
+  m_AnchoredPosition: {x: -1.0222, y: 2.1399}
+  m_SizeDelta: {x: 134.4455, y: 72.588}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7235914644220031512
 CanvasRenderer:
@@ -419,16 +419,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9433962, g: 0.823421, b: 0.035599828, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3b131204abd29b84cb4e3f6c1eb8c3ec, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -521,8 +521,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6547903941590150772}
-  - component: {fileID: 3737828586873758570}
   - component: {fileID: 5151103718519860023}
+  - component: {fileID: 3737828586873758570}
   - component: {fileID: 1406299824206470647}
   - component: {fileID: 7436079113299172511}
   m_Layer: 5
@@ -555,14 +555,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 118, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &3737828586873758570
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7607421934019518634}
-  m_CullTransparentMesh: 1
 --- !u!114 &5151103718519860023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -580,6 +572,14 @@ MonoBehaviour:
   cooldown: -1
   selectedVisual: {fileID: 5805803387045587535}
   cooldownVisual: {fileID: 2558771356452634227}
+--- !u!222 &3737828586873758570
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7607421934019518634}
+  m_CullTransparentMesh: 1
 --- !u!114 &1406299824206470647
 MonoBehaviour:
   m_ObjectHideFlags: 0

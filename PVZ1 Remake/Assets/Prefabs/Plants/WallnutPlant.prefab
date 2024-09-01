@@ -56,8 +56,68 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8049307014582315887, guid: 372d2ad90ff0a39459b52cced5cc935d, type: 3}
+      propertyPath: m_Size.x
+      value: 5.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8049307014582315887, guid: 372d2ad90ff0a39459b52cced5cc935d, type: 3}
+      propertyPath: m_Size.y
+      value: 5.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8049307014582315887, guid: 372d2ad90ff0a39459b52cced5cc935d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 15f4e3ded9a6c3042b2274dc562600aa, type: 3}
+    - target: {fileID: 8049307014582315887, guid: 372d2ad90ff0a39459b52cced5cc935d, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083133241976077789, guid: 372d2ad90ff0a39459b52cced5cc935d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.45812592
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083133241976077789, guid: 372d2ad90ff0a39459b52cced5cc935d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.45812592
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083133241976077789, guid: 372d2ad90ff0a39459b52cced5cc935d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.45812592
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083133241976077789, guid: 372d2ad90ff0a39459b52cced5cc935d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.029
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083133241976077789, guid: 372d2ad90ff0a39459b52cced5cc935d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 447756426724388673, guid: 372d2ad90ff0a39459b52cced5cc935d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5212784575955134187}
   m_SourcePrefab: {fileID: 100100000, guid: 372d2ad90ff0a39459b52cced5cc935d, type: 3}
+--- !u!1 &7928738276024577661 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 447756426724388673, guid: 372d2ad90ff0a39459b52cced5cc935d, type: 3}
+  m_PrefabInstance: {fileID: 7511521961599746364}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5212784575955134187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7928738276024577661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84dc81d99accc54c820b88459ee7224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantMeta: {fileID: 11400000, guid: 2260773aae70d2c41967072b80adac17, type: 2}
+  health: 72
+  spriteStages: []
+  healthIntervals: 

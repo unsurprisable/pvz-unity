@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Peashooter : PeriodicPlant
+public class Sunflower : PeriodicPlant
 {
     public override void OnCycleComplete()
     {
-        Debug.Log("shoot!!!");
+        Debug.Log("spawned a sun (sunflower)");
     }
 }
