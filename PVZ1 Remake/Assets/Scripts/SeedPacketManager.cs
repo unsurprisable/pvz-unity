@@ -23,8 +23,10 @@ public class SeedPacketManager : MonoBehaviour
     {
         // planting seeds
         if (selectedSeed != null && PlantGrid.Instance.TryGetHoveredCell(out PlantGridCell cell)) {
-            PlantGrid.Instance.PlantSeed(selectedSeed.plantMeta, cell);
-            selectedSeed.StartCooldown();
+            if (!cell.HasPlant()) {
+                PlantGrid.Instance.PlantSeed(selectedSeed.plantMeta, cell);
+                selectedSeed.StartCooldown();
+            }
             DeselectSeed();
         }
     }

@@ -127,12 +127,7 @@ public class PlantGrid : MonoBehaviour
     }
 
     public void PlantSeed(PlantMetaSO plantMeta, PlantGridCell cell) {
-        if (cell.HasPlant()) {
-            Debug.LogError("cannot plant on an occupied space! location: " + cell.GetGridCoordinates());
-            return;
-        }
         cell.SetPlant(plantMeta);
         Instantiate(plantMeta.plantPrefab, cell.GetWorldPosition(), Quaternion.identity);
-        Debug.Log("planted " + plantMeta.nickname + " at cell " + cell.GetGridCoordinates());
     }
 }
